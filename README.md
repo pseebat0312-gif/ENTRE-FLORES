@@ -1,118 +1,70 @@
-# ENTRE-FLORES
-ENTRE FLORES — An interactive floral atelier blending editorial design, seasonal gardens, and a build-your-own bouquet experience.
+# Entre Flores
+
+An original interactive floral atelier inspired by the gardens and light of Madrid. Static HTML, CSS and vanilla JavaScript; no API key, database or paid service required.
+
+## Explore
+
+- Editorial homepage and individually photographed floral collections.
+- A living courtyard garden with 17 clickable botanical species and seasonal filters.
+- Botanical descriptions, Latin names, meanings and suggested pairings.
+- Bouquet atelier: add, drag, rotate, resize, reorder and remove stems.
+- Automatic bouquet composition, undo/redo, named local saves and PNG export.
+- Responsive mobile navigation and touch interaction.
+
+Prices and order confirmation are demonstration content. No payments or real orders are processed. Saves remain in the visitor's browser.
+
+## Run locally
+
+Open a terminal in this directory and run `python -m http.server 8000`, then visit http://localhost:8000. Windows users can run INICIAR_WINDOWS.bat if Python 3 is installed.
+
+## Deploy to GitHub Pages
+
+Upload this project to your repository, including `index.html`, `style.css`, `app.js`, `garden-data.js`, `garden-wind.js`, `atelier-polish.css`, `assets/` and `.github/workflows/pages.yml`. In GitHub, open Settings → Pages and select GitHub Actions as the source. The included workflow publishes the static files. Asset paths are relative, so repository subpaths work.
+
+The `dist/` directory mirrors the static website for the private working preview. `.openai/hosting.json` configures only that preview; it is not required for GitHub Pages. There is no ChatGPT login dependency in the application.
+
+## Visual direction
+
+Cream paper tones, terracotta accents, dark olive botanical imagery. Brand and historia: Fleur De Leah; display accents: Pinyon Script; reading text: EB Garamond. All active photography and botanical assets were generated independently, not extracted from layout screenshots. See ASSET_SOURCE.md.
+
+## Validation
+
+JavaScript syntax and referenced asset paths checked. Desktop browser exercised garden-to-atelier flow, collection filtering, addition and totals, automatic composition, save/clear/restore, and PNG export. Mobile layout inspected in a 390px-wide browser frame. No cross-device exhaustive compatibility claim is made.
+
+## Dimensional garden update
+
+The garden is a continuous photographic panorama with direct botanical hit regions. Foliage responds to a shared wind field (WebGL with a Canvas mesh fallback); the transparent swing has its own pendulum animation. On narrow screens the garden pans horizontally. The homepage uses a separate large floral foreground, CSS perspective and pointer parallax. Reduced-motion preferences disable motion.
+
+The bouquet vase is rendered in three layers: vessel back, stems inside the mouth, vessel front. Dragging changes bloom angle and length while the stem base settles inside the vessel. Saved stems from the earlier layout are migrated to the new insertion point.
+
+## Herbarium refinement
+
+The cover uses EB Garamond italic and four independent photographic planes with different parallax depths and wind timings. The garden adds 23 independent foreground plants with varied height, angle and individual animation phase. Repeated blooms in the continuous background have multiple interaction regions. Foreground picking uses visible image alpha, so transparent margins do not steal clicks from adjacent flowers. Plant colors share a warm muted grade and the ground fades into the garden beds.
+
+The burgundy herbarium card includes specimen number, flower name, Latin name, flower meaning, season, per-stem price and clickable companion species. Desktop pointer tests exercised visible rose and peony petals; the mobile layout and companion-card-to-bouquet flow were verified in a 390px-wide frame.
+
+## Four seasons and presentation choices
+
+The garden switches between four separately generated photographs (spring, summer, autumn, winter), with season-specific foreground flowers. Autumn includes a copper dahlia variant; winter includes white hellebores. The floral card is a small rectangular burgundy collector card with a vertical ochre tape detail.
+
+The atelier supports the ivory ceramic bowl, olive glazed ceramic vase, amber ribbed glass and vintage newspaper wrapping. Each has a separately configured opening/front mask and stem anchor. Stem release uses damped position, angle and scale settling. Presentation choice and flower image variants are saved with the design.
+
+On mobile the atelier has a dedicated viewport layout: composition canvas above, a scrollable flowers/presentation panel, and a compact summary with an expandable detail drawer. Vibration feedback uses feature detection and a user toggle; browsers without that API keep visual feedback.
+
+A centered creator-watermark slot is reserved in the footer. It remains empty until the user supplies their approved mark. See AGENTS.md.
+
+### Creator signature and full-screen cover
+The supplied Beta signature is refined as a transparent `assets/beta-signature.png`, centered in the footer. Preserve the original crescent face and brush lettering when reusing it. Desktop uses a viewport-sized shell: home, garden and atelier fit between navigation and signature; longer editorial pages scroll inside the content area. All hero lines use Fleur De Leah. Scene entries fade and rise over approximately one second, respecting reduced-motion preferences.
+
+### Independent floral foreground and more presentations
+The cover uses 28 individual botanical assets in four planes, each with its own wind duration, phase and amplitude. The cover is clipped at its bottom; only the two original white anemones extend beyond the garden edge in all four seasons. No additional footer flowers are added. The atelier includes six vases and four wraps, with dedicated front occlusion and vector silhouettes. The new options are a glass soliflore, terracotta amphora, wine ceramic compote, single-flower kraft sleeve, ivory pleated wrap and burgundy paper with silk ribbon.
+
+### Final pricing and glass detail
+Paper wrap supplements: kraft €1.50, newspaper €3.50, ivory €4.50, burgundy/silk €6.50. The selected supplement appears once in the live receipt and order summary, including restored designs, and is removed when changing to a vase. Transparent glass and amber vessels display subtly refracted, tinted submerged stalks, masked to the actual vessel silhouette. Cover stems use separate damped wind oscillators with varied frequencies, directions, inertia and small downward deflection; this is a visual physical approximation, not a scientific simulation.
 
 
-# ENTRE FLORES 🌿
-### An Interactive Floral Atelier
+### Petal and glass continuity correction
+The garden keeps the original two white specimens within its scene; a synchronized, noninteractive head-only overflow reveals cropped petals without adding footer stems. Responsive positioning keeps the original heads at the scene edge on wide screens. Glass stems follow the photographed stalk angle into the vessel, remain visible through a translucent front layer, and export with the composition.
 
-*A little garden on the internet, where flowers become something personal.*
 
-**ENTRE FLORES** is an independent creative web project inspired by the quiet beauty of botanical gardens, vintage floral studios, and the romantic atmosphere of Madrid.
-
-Designed as an immersive digital floral atelier, it brings together editorial aesthetics, interactive storytelling, and playful bouquet customization.
-
-Rather than browsing a traditional flower shop, visitors are invited to explore a living garden, discover the stories behind different flowers, and create their own arrangements.
-
----
-
-## The Experience
-
-### 01 — A Garden Through the Seasons
-Explore a botanical garden that changes with spring, summer, autumn, and winter.
-
-Discover interactive flowers, atmospheric movement, and carefully composed botanical scenery.
-
-### 02 — The Botanical Collection
-Select flowers to reveal individual botanical cards featuring their names, meanings, seasonal details, and suggested pairings.
-
-### 03 — Create Your Bouquet
-Build a personalized floral arrangement with an interactive bouquet editor.
-
-- Choose from different flowers and foliage.
-- Arrange and adjust individual stems.
-- Explore ceramic vases, glass vessels, and paper wrapping.
-- See the estimated price update as you create.
-- Undo and redo changes.
-- Save arrangements locally and export them as PNG images.
-
-### 04 — An Editorial Floral World
-A visual experience inspired by botanical photography, warm paper textures, vintage typography, and contemporary floral art direction.
-
----
-
-## Design Direction
-
-ENTRE FLORES combines **Botanical Romanticism × Editorial Design × Interactive Web Experiences**.
-
-The visual identity explores warm ivory, terracotta, deep olive green, and burgundy, with restrained motion and natural botanical textures.
-
-**Typography**
-- Fleur De Leah — expressive brand lettering
-- Pinyon Script — decorative editorial accents
-- EB Garamond — elegant reading typography
-
-The aim is to create a digital space that feels intimate, tactile, and thoughtfully art-directed.
-
----
-
-## Built With
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- SVG and Canvas-based visual effects
-- Responsive layouts and touch interactions
-- Browser-based local storage
-
-The website is designed as a standalone static project without a required backend or database.
-
----
-
-## Run Locally
-
-Clone the repository:
-
-```bash
-git clone https://github.com/YOUR-USERNAME/entre-flores.git
-cd entre-flores
-```
-
-Start a local web server:
-
-```bash
-python -m http.server 8000
-```
-
-Open `http://localhost:8000` in your browser.
-
-On Windows, you can also use the included `INICIAR_WINDOWS.bat` script if Python 3 is installed.
-
----
-
-## Deployment
-
-The project can be hosted on Cloudflare Pages or GitHub Pages.
-
-For Cloudflare Pages, connect the GitHub repository and deploy the static files from the directory containing `index.html`. No compilation step is required.
-
----
-
-## Project Notes
-
-ENTRE FLORES is an independent **conceptual floral atelier**, created as a creative web design and interactive development project.
-
-The floral catalog, prices, and order interface are demonstrations. No real purchases or payments are processed.
-
-Saved bouquet designs remain in the visitor's browser.
-
----
-
-## Created by beta
-
-**Independent Digital Creator · BETARCHIVO**
-
-*A little art, a little code, a lot of curiosity.*
-
-Part of the **BETARCHIVO** collection — a personal creative space exploring the intersection of design, technology, and imagination.
-
-© 2026 beta · BETARCHIVO
+Mobile UI revision: removed duplicated in-scene petals; reduced mobile garden mesh workload; changed vessel choices to a vertical two-column grid; compacted complete flower cards and restyled the small order card in burgundy/olive; added mobile atelier and order-card Volver controls.
